@@ -127,18 +127,18 @@ public class Veterinario {
         return pacientesACargo;
     }
     public boolean verificiarIdMascota(int id){
-        boolean bandera=true;
-        for(Mascota mascota1:pacientesACargo){
-            if(mascota1.getIdMascota()==id){
-                bandera=false;
+        boolean bandera=false;
+        for(Mascota mascota:pacientesACargo){
+            if(mascota.getIdMascota()==(id)){
+                bandera=true;
             }
 
         }
         return bandera;
         
     }
-    public  void agregarPaciente(boolean bandera,Mascota mascota){
-        if(!bandera){
+    public  void agregarPaciente(Mascota mascota){
+        if(!verificiarIdMascota(mascota.getIdMascota())){
             pacientesACargo.add(mascota);
         }else{
             System.out.println("El paciente que intenta agregar ya se encuentra en el sistema");

@@ -7,12 +7,10 @@ public class App {
     Veterinaria veterinaria=crearVeterinaria();
     Veterinario veterinario=crearVeterinario();
     Mascota mascota=crearMascota(veterinario);
-    boolean bandera=veterinario.verificiarIdMascota(mascota.getIdMascota());
-    veterinario.agregarPaciente(bandera, mascota);
-    boolean verificarVete=veterinaria.verificiarIdVeterio(veterinario.getIdVeterinario());
-    veterinaria.agregarVeterinario(verificarVete, veterinario);
+    veterinario.agregarPaciente(mascota);
 
-    imprimir( mascota.toString());
+
+    imprimir( veterinario.toString());
 
 
     }
