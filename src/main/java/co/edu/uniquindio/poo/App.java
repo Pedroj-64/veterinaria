@@ -7,5 +7,7 @@ package co.edu.uniquindio.poo;
 public class App {
     public static void main(String[] args) {
         System.out.println("Hello World!");
+        Veterinaria amigosPeludos=new Veterinaria(null, null);
+        System.out.println(amigosPeludos);
     }
 }
