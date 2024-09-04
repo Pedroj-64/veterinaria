@@ -6,12 +6,19 @@ public class App {
     public static void main(String[] args) {
     Veterinaria veterinaria=crearVeterinaria();
     Veterinario veterinario=crearVeterinario();
+    Veterinario veterinario2=crearVeterinario2();
+    Mascota mascota2=crearMascota2(veterinario);
     Mascota mascota=crearMascota(veterinario);
-    veterinario.agregarPaciente(mascota);
+    veterinario.agregarPaciente( mascota);
+    veterinario2.agregarPaciente( mascota2);
+    boolean verificarVeterinario=veterinaria.verificiarIdVeterio(veterinario.getIdVeterinario());
+    boolean verificarVeterinario2=veterinaria.verificiarIdVeterio(veterinario2.getIdVeterinario());
+    veterinaria.agregarVeterinario(verificarVeterinario, veterinario);
+    veterinaria.agregarVeterinario(verificarVeterinario2, veterinario2);
+    veterinaria.agregarPacientes(veterinario.getPacientesACargo());
+    veterinaria.agregarPacientes(veterinario2.getPacientesACargo());
 
-
-    imprimir( veterinario.toString());
-
+    imprimir(veterinaria.toString());
 
     }
 
