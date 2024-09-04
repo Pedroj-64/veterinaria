@@ -4,11 +4,12 @@ public class Mascota {
     private String nombre;
     private String especie;
     private String raza;
-    private String genero;
+    private Genero genero;
     private String color;
     private double peso;
     private int idMascota;
     private Estado estado;
+    private Veterinario veterinario;
     /**
      * Constructor de la clase mascota
      * @param nombre
@@ -19,8 +20,8 @@ public class Mascota {
      * @param peso
      * @param idMascota
      */
-    public Mascota(String nombre, String especie, String raza, String genero, String color, double peso,
-            int idMascota) {
+    public Mascota(String nombre, String especie, String raza, Genero genero, String color, double peso,
+            int idMascota,Estado estado, Veterinario veterinario) {
         this.nombre = nombre;
         this.especie = especie;
         this.raza = raza;
@@ -28,6 +29,8 @@ public class Mascota {
         this.color = color;
         this.peso = peso;
         this.idMascota = idMascota;
+        this.estado=estado;
+        this.veterinario=veterinario;
 
     }
     /**
@@ -76,14 +79,14 @@ public class Mascota {
      * setter genero
      * @param genero
      */
-    public void setGenero(String genero) {
+    public void setGenero(Genero genero) {
         this.genero = genero;
     }
     /**
      * getter genero
      * @return
      */
-    public String getGenero() {
+    public Genero getGenero() {
         return genero;
     }
     /**
@@ -142,13 +145,22 @@ public class Mascota {
     public Estado getEstado() {
         return estado;
     }
+
+    public Veterinario getVeterinario() {
+        return veterinario;
+    }
+    public void setVeterinario(Veterinario veterinario) {
+        this.veterinario = veterinario;
+    }
     /**
      * Metodo toString para dar un modelado mejor al codigo
      */
     @Override
     public String toString() {
         return "Mascota [nombre=" + nombre + ", especie=" + especie + ", raza=" + raza + ", genero=" + genero
-                + ", color=" + color + ", peso=" + peso + ", idMascota=" + idMascota + ", estado=" + estado + "]";
+                + ", color=" + color + ", peso=" + peso + ", idMascota=" + idMascota + ", estado=" + estado
+                + ", veterinario=" + veterinario + "]";
     }
+    
 
 }

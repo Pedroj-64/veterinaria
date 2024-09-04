@@ -2,6 +2,7 @@ package co.edu.uniquindio.poo;
 
 import java.sql.Date;
 import java.util.Collection;
+import java.util.LinkedList;
 
 public class Veterinario {
 
@@ -23,14 +24,15 @@ public class Veterinario {
      * @param correo
      * @param pacientesACargo
      */
-    public Veterinario(String nombre,int idVeterinario,Especializacion especializacion,Date fechaDeNacimiento,String numeroContacto,String correo,Collection<Mascota> pacientesACargo){
+    public Veterinario(String nombre,int idVeterinario,Especializacion especializacion,Date fechaDeNacimiento,String numeroContacto,String correo){
         this.nombre=nombre;
         this.idVeterinario=idVeterinario;
         this.especializacion=especializacion;
         this.fechaDeNacimiento=fechaDeNacimiento;
         this.numeroContacto=numeroContacto;
         this.correo=correo;
-        this.pacientesACargo=pacientesACargo;
+        pacientesACargo=new LinkedList<>();
+
 
     }
     /**
@@ -123,6 +125,37 @@ public class Veterinario {
      */
     public Collection<Mascota> getPacientesACargo() {
         return pacientesACargo;
+    }
+    public boolean verificiarIdMascota(int id){
+        boolean bandera=false;
+        for(Mascota mascota1:pacientesACargo){
+            if(mascota1.getIdMascota()==id){
+                bandera=true;
+            }
+
+        }
+        return bandera;
+        
+    }
+    public  void agregarPaciente(boolean bandera,Mascota mascota){
+        if(bandera==false){
+            pacientesACargo.add(mascota);
+        }else{
+            System.out.println("El paciente que intenta agregar ya se encuentra en el sistema");
+        }
+    
+    }
+
+    public void eliminarPaciente(int id){
+        for(Mascota mascota: pacientesACargo){
+            if(mascota.getIdMascota()==id){
+                pacientesACargo.remove(mascota);
+                break;
+            }else{
+                System.out.println("El paciente que intenta eliminar del sistema no existe");
+            }
+        }
+
     }
     /**
      * metodo toString para modelado del codigo
