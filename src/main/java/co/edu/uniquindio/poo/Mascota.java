@@ -161,6 +161,7 @@ public class Mascota {
                 + ", color=" + color + ", peso=" + peso + ", idMascota=" + idMascota + ", estado=" + estado
                 + ", veterinario=" + veterinario + "]";
     }
+
     
 
 }

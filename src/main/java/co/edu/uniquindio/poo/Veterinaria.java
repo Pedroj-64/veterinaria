@@ -77,12 +77,11 @@ public class Veterinaria {
         
     }
     public  void agregarVeterinario(boolean bandera,Veterinario veterinario){
-        if(bandera==false){
+        if(!bandera){
             veterinarios.add(veterinario);
         }else{
             System.out.println("El veterinario que intenta agregar ya se encuentra en el sistema");
         }
-    
 
     }
     

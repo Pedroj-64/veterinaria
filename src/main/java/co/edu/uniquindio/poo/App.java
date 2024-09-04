@@ -6,21 +6,13 @@ public class App {
     public static void main(String[] args) {
     Veterinaria veterinaria=crearVeterinaria();
     Veterinario veterinario=crearVeterinario();
-    Veterinario veterinario2=crearVeterinario2();
-    Mascota mascota2=crearMascota2(veterinario);
     Mascota mascota=crearMascota(veterinario);
-    boolean verificar=veterinario.verificiarIdMascota(mascota.getIdMascota());
-    boolean verificar2=veterinario.verificiarIdMascota(mascota2.getIdMascota());
-    veterinario.agregarPaciente(verificar, mascota);
-    veterinario2.agregarPaciente(verificar2, mascota2);
-    boolean verificarVeterinario=veterinaria.verificiarIdVeterio(veterinario.getIdVeterinario());
-    boolean verificarVeterinario2=veterinaria.verificiarIdVeterio(veterinario2.getIdVeterinario());
-    veterinaria.agregarVeterinario(verificarVeterinario, veterinario);
-    veterinaria.agregarVeterinario(verificarVeterinario2, veterinario2);
-    veterinaria.agregarPacientes(veterinario.getPacientesACargo());
-    veterinaria.agregarPacientes(veterinario2.getPacientesACargo());
+    boolean bandera=veterinario.verificiarIdMascota(mascota.getIdMascota());
+    veterinario.agregarPaciente(bandera, mascota);
+    boolean verificarVete=veterinaria.verificiarIdVeterio(veterinario.getIdVeterinario());
+    veterinaria.agregarVeterinario(verificarVete, veterinario);
 
-    imprimir(veterinaria.toString());
+    imprimir( mascota.toString());
 
 
     }
@@ -31,13 +23,13 @@ public class App {
     }
 
     public static Veterinario crearVeterinario(){
-        Date fechaDeNaciemiento=new Date(1890-05-10);
+        Date fechaDeNaciemiento=Date.valueOf("1890-05-10");
         Veterinario veterinario=new Veterinario("Paco", 189, Especializacion.CARDIOLOGIA,fechaDeNaciemiento, "314959439", "vete@gmail.com");
         return veterinario;
     }
 
     public static Veterinario crearVeterinario2(){
-        Date fechaDeNaciemiento=new Date(2000-05-30);
+        Date fechaDeNaciemiento=Date.valueOf("2000-05-30");
         Veterinario veterinario=new Veterinario("Ernestillo", 18, Especializacion.CARDIOLOGIA,fechaDeNaciemiento, "314959439", "veteri@gmail.com");
         return veterinario;
     }
