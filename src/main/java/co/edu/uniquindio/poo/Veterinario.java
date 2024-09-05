@@ -154,6 +154,13 @@ public class Veterinario {
         return pacientesACargo;
     }
 
+    /**
+     * Metodo propio de la clase que verifica si existen en lista la mascota que se
+     * quiere agregar
+     * 
+     * @param id
+     * @return
+     */
     public boolean existeIdMascota(int id) {
         boolean centinela = false;
         for (Mascota mascota : pacientesACargo) {
@@ -166,13 +173,24 @@ public class Veterinario {
 
     }
 
+    /**
+     * Metodo para que el veterinario pueda agregar una mascota como paciente a su
+     * cargo
+     * 
+     * @param mascota
+     */
     public void agregarPaciente(Mascota mascota) {
-        if (existeIdMascota(mascota.getIdMascota())==false) {
+        if (existeIdMascota(mascota.getIdMascota()) == false) {
             pacientesACargo.add(mascota);
         }
 
     }
 
+    /**
+     * Metodo para eliminar paciente a cargo del veterinario
+     * 
+     * @param id
+     */
     public void eliminarPaciente(int id) {
         for (Mascota mascota : pacientesACargo) {
             if (mascota.getIdMascota() == id) {
