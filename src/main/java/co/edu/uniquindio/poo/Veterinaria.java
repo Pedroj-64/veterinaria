@@ -65,24 +65,24 @@ public class Veterinaria {
     public void setVeterinarios(Collection<Veterinario> veterinarios) {
         this.veterinarios = veterinarios;
     }
-    public boolean verificiarIdVeterio(int id){
-        boolean bandera=false;
+
+
+    public boolean existeVeterinario(int id){
+        boolean centinela=false;
         for(Veterinario veterinario: veterinarios){
             if(veterinario.getIdVeterinario()==id){
-                bandera=true;
+                centinela=true;
+                break;
             }
 
         }
-        return bandera;
+        return centinela;
         
     }
-    public  void agregarVeterinario(boolean bandera,Veterinario veterinario){
-        if(!bandera){
+    public   void agregarVeterinario(Veterinario veterinario){
+        if(existeVeterinario(veterinario.getIdVeterinario())==false){
             veterinarios.add(veterinario);
-        }else{
-            System.out.println("El veterinario que intenta agregar ya se encuentra en el sistema");
         }
-
     }
     
     public void eliminarVeterinario(int id){
@@ -90,8 +90,6 @@ public class Veterinaria {
             if(veterio.getIdVeterinario()==id){
                 veterinarios.remove(veterio);
                 break;
-            }else{
-                System.out.println("El veterinario que intenta eliminar del sistema no existe");
             }
         }
 

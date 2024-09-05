@@ -16,6 +16,7 @@ public class Veterinario {
 
     /**
      * Metodo cosntructor del veterinario
+     * 
      * @param nombre
      * @param idVeterinario
      * @param especializacion
@@ -24,139 +25,164 @@ public class Veterinario {
      * @param correo
      * @param pacientesACargo
      */
-    public Veterinario(String nombre,int idVeterinario,Especializacion especializacion,Date fechaDeNacimiento,String numeroContacto,String correo){
-        this.nombre=nombre;
-        this.idVeterinario=idVeterinario;
-        this.especializacion=especializacion;
-        this.fechaDeNacimiento=fechaDeNacimiento;
-        this.numeroContacto=numeroContacto;
-        this.correo=correo;
-        pacientesACargo=new LinkedList<>();
-
+    public Veterinario(String nombre, int idVeterinario, Especializacion especializacion, Date fechaDeNacimiento,
+            String numeroContacto, String correo) {
+        this.nombre = nombre;
+        this.idVeterinario = idVeterinario;
+        this.especializacion = especializacion;
+        this.fechaDeNacimiento = fechaDeNacimiento;
+        this.numeroContacto = numeroContacto;
+        this.correo = correo;
+        pacientesACargo = new LinkedList<>();
 
     }
+
     /**
      * getter nombre
+     * 
      * @return
      */
     public String getNombre() {
         return nombre;
     }
+
     /**
      * setter nombre
+     * 
      * @param nombre
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
     /**
      * getter del id del veterinario
+     * 
      * @return
      */
     public int getIdVeterinario() {
         return idVeterinario;
     }
+
     /**
      * setter del id del veterinario
+     * 
      * @param idVeterinario
      */
     public void setIdVeterinario(int idVeterinario) {
         this.idVeterinario = idVeterinario;
     }
+
     /**
      * getter de la especializacion del veterinario
+     * 
      * @return
      */
     public Especializacion getEspecializacion() {
         return especializacion;
     }
+
     /**
      * setter de la especializacion
+     * 
      * @param especializacion
      */
     public void setEspecializacion(Especializacion especializacion) {
         this.especializacion = especializacion;
     }
+
     /**
      * getter de la fecha de nacimiento
+     * 
      * @return
      */
     public Date getFechaDeNacimiento() {
         return fechaDeNacimiento;
     }
+
     /**
      * setter de la fecha de nacimiento del veterinario
+     * 
      * @param fechaDeNacimiento
      */
     public void setFechaDeNacimiento(Date fechaDeNacimiento) {
         this.fechaDeNacimiento = fechaDeNacimiento;
-    }   
+    }
+
     /**
      * getter del numero del veterinario
+     * 
      * @return
      */
     public String getNumeroContacto() {
         return numeroContacto;
     }
+
     /**
      * setter del numero de contacto
+     * 
      * @param numeroContacto
      */
     public void setNumeroContacto(String numeroContacto) {
         this.numeroContacto = numeroContacto;
     }
+
     /**
      * getter del correo
+     * 
      * @return
      */
     public String getCorreo() {
         return correo;
     }
+
     /**
      * setter correo
+     * 
      * @param correo
      */
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+
     /**
      * getter de la lista de pacientes a cargo
+     * 
      * @return
      */
     public Collection<Mascota> getPacientesACargo() {
         return pacientesACargo;
     }
-    public boolean verificiarIdMascota(int id){
-        boolean bandera=false;
-        for(Mascota mascota:pacientesACargo){
-            if(mascota.getIdMascota()==(id)){
-                bandera=true;
+
+    public boolean existeIdMascota(int id) {
+        boolean centinela = false;
+        for (Mascota mascota : pacientesACargo) {
+            if (mascota.getIdMascota() == (id)) {
+                centinela = true;
             }
 
         }
-        return bandera;
-        
-    }
-    public  void agregarPaciente(Mascota mascota){
-        if(!verificiarIdMascota(mascota.getIdMascota())){
-            pacientesACargo.add(mascota);
-        }else{
-            System.out.println("El paciente que intenta agregar ya se encuentra en el sistema");
-        }
-    
+        return centinela;
+
     }
 
-    public void eliminarPaciente(int id){
-        for(Mascota mascota: pacientesACargo){
-            if(mascota.getIdMascota()==id){
+    public void agregarPaciente(Mascota mascota) {
+        if (existeIdMascota(mascota.getIdMascota())==false) {
+            pacientesACargo.add(mascota);
+        }
+
+    }
+
+    public void eliminarPaciente(int id) {
+        for (Mascota mascota : pacientesACargo) {
+            if (mascota.getIdMascota() == id) {
                 pacientesACargo.remove(mascota);
                 break;
-            }else{
-                System.out.println("El paciente que intenta eliminar del sistema no existe");
             }
         }
 
     }
+
     /**
      * metodo toString para modelado del codigo
      */
@@ -166,8 +192,5 @@ public class Veterinario {
                 + especializacion + ", fechaDeNacimiento=" + fechaDeNacimiento + ", numeroContacto=" + numeroContacto
                 + ", correo=" + correo + ", pacientesACargo=" + pacientesACargo + "]";
     }
-
-
-
 
 }

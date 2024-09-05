@@ -21,7 +21,7 @@ public class Mascota {
      * @param idMascota
      */
     public Mascota(String nombre, String especie, String raza, Genero genero, String color, double peso,
-            int idMascota,Estado estado, Veterinario veterinario) {
+            int idMascota,Estado estado) {
         this.nombre = nombre;
         this.especie = especie;
         this.raza = raza;
@@ -30,7 +30,7 @@ public class Mascota {
         this.peso = peso;
         this.idMascota = idMascota;
         this.estado=estado;
-        this.veterinario=veterinario;
+   
 
     }
     /**
@@ -145,10 +145,17 @@ public class Mascota {
     public Estado getEstado() {
         return estado;
     }
-
+    /**
+     * metodo getter para veterinario que atiende a mascota
+     * @return
+     */
     public Veterinario getVeterinario() {
         return veterinario;
     }
+    /**
+     * metodo setter para veterinario de la mascota
+     * @param veterinario
+     */
     public void setVeterinario(Veterinario veterinario) {
         this.veterinario = veterinario;
     }
@@ -159,7 +166,7 @@ public class Mascota {
     public String toString() {
         return "Mascota [nombre=" + nombre + ", especie=" + especie + ", raza=" + raza + ", genero=" + genero
                 + ", color=" + color + ", peso=" + peso + ", idMascota=" + idMascota + ", estado=" + estado
-                + ", veterinario=" + veterinario + "]";
+                + "]";
     }
 
     
